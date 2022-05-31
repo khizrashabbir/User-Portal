@@ -8,11 +8,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import { FormGroup, FormControl, Validators,ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { UsersComponent } from './dashboard/users/users.component';
+import { NodeComponent } from './dashboard/node/node.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    UsersComponent,
+    NodeComponent
   ],
   imports: [
     BrowserModule,
