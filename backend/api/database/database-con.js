@@ -3,7 +3,7 @@ var pool = mysql.createPool({
   host: 'localhost',
   user: 'netrapter',
   password: 'Khizsh18!',
-  database:'hawkeye100',
+  database:'nms',
 });
 
 module.exports.query = function(getQuery, valuesArr, res) {
