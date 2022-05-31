@@ -1,8 +1,22 @@
+// import { Component, OnInit } from '@angular/core';
+
+// @Component({
+//   selector: 'app-login',
+//   templateUrl: './login.component.html',
+//   styleUrls: ['./login.component.css']
+// })
+// export class LoginComponent implements OnInit {
+
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// }
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginService } from '../api-service/login.service';
-
+import { LoginService } from '../api-services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -27,23 +41,28 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login() {
-    if (this.formGroup.valid) {
-      this.service.authenticateUser(this.formGroup.value).subscribe((res) => {
-        if (res.message == "success") {
-          console.log(res);
+  // login() {
+  //   if (this.formGroup.valid) {
+  //     this.service.authenticateUser(this.formGroup.value).subscribe((res) => {
+  //       if (res.success) {
+  //         console.log(res);
 
-          localStorage.setItem('username', res.data.User_UserName);
-          localStorage.setItem('user_role', res.data.Role_Name);
-          this.router.navigate(['dashboard']);
-        } else {
-          alert("Login Failed;");
-        }
-      }, error => {
-        alert("Login Failed;");
-      });
-    }
-  }
+  //         localStorage.setItem('username', res.username);
+  //         localStorage.setItem('user_role', res.user_role);
+  //         localStorage.setItem('token', res.accessToken);
+  //         if(res.user_role=="Lea_Admin"){
+  //         this.router.navigate(['activity']);
+  //         }else if(res.user_role=="PTA_Admin"){
+  //           this.router.navigate(['dashboard']);
+  //         }
+  //       } else {
+  //         alert("Login Failed;");
+  //       }
+  //     }, error => {
+  //       alert("Login Failed;");
+  //     });
+  //   }
+  // }
 
 
 }

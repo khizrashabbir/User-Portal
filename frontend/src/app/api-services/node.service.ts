@@ -6,11 +6,11 @@ import { baseUrl } from './../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class NodeService {
 
-  constructor(private _http: HttpClient) { }
-  authenticateUser(data): Observable<any> {
-    return this._http.post(`${baseUrl}user/login`, data);
-  }
-
+ 
+  // constructor(private _http: HttpClient) { }
+  // getData(data): Observable<any> {
+  //   return this._http.post(`${baseUrl}node/getData`, data);
+  // }
 }

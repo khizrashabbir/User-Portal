@@ -2,34 +2,37 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
-import { UsersComponent } from './dashboard/users/users.component';
-import { NodeComponent } from './dashboard/node/node.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularMaterialModule } from './angular-material.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { UsersComponent } from './Dashboard/users/users.component';
+import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
+import { NodesComponent } from './Dashboard/nodes/nodes.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
     UsersComponent,
-    NodeComponent
+    DashboardComponent,
+    NodesComponent
+   
+  
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    FormGroup,
+    FormsModule,
     ReactiveFormsModule,
+    AngularMaterialModule,
+    HttpClientModule
+   
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
