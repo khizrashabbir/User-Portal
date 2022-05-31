@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { UsersComponent } from './Dashboard/users/users.component';
 import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
 import { NodesComponent } from './Dashboard/nodes/nodes.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'login', component: LoginComponent
+  },
+  {
+    path: 'logout', component: LogoutComponent
   },
   {
     path: 'dashboard', component: DashboardComponent

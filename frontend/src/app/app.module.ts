@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UsersComponent } from './Dashboard/users/users.component';
 import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
 import { NodesComponent } from './Dashboard/nodes/nodes.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NodesComponent } from './Dashboard/nodes/nodes.component';
     LoginComponent,
     UsersComponent,
     DashboardComponent,
-    NodesComponent
+    NodesComponent,
+    LogoutComponent
    
   
 
