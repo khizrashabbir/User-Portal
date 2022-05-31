@@ -1,6 +1,6 @@
 <p>login works!</p>
 <mat-toolbar color="primary" class="app-header">
-    <span class="toolbar-spacer"><img class="logo" src="./assets/logohawk.png" alt="Hawkeye"> </span>
+    <span class="toolbar-spacer"><img class="logo" alt="Hawkeye"> </span>
     <span class="app-name">HAWKEYE-100</span>
     <span></span>
   </mat-toolbar>
@@ -10,7 +10,9 @@
           <mat-card-title>Log In</mat-card-title>
         </mat-card-header>
   
-        <form class="login-form" [formGroup]="formGroup" (ngSubmit)="login()">
+        <form class="login-form">
+            <!-- <form class="login-form" [formGroup]="formGroup" (ngSubmit)="login()"> -->
+
           <mat-card-content>
             <mat-form-field class="login-full-width">
               <input matInput placeholder="Username" formControlName="username">
