@@ -9,8 +9,8 @@ import { baseUrl } from './../../environments/environment';
 export class UsersService {
 
   constructor(private _http: HttpClient) { }
-  getData(data: any): Observable<any> {
-    return this._http.get(`${baseUrl}users/getData'`, data);
+  getData(): Observable<any> {
+    return this._http.get(`${baseUrl}users/getData'`);
   }
   addData(data: any): Observable<any> {
     return this._http.post(`${baseUrl}users/addData'`, data);

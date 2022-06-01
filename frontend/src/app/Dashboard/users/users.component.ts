@@ -4,7 +4,6 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { Location } from '@angular/common';
-// import { UsersComponent } from '../../api-services/users.service';
 import { UsersService } from '../../api-services/users.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -56,11 +55,12 @@ export class UsersComponent implements OnInit {
     this.voip = false;
     this.screen = "";
     this.message = "";
+    // this.formGroup = "";
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource();
   }
   ngOnInit(): void {
-    this.getAllData();
+    // this.getData();
     // this.initForm();
   }
   //get key by given value of json
@@ -74,7 +74,7 @@ export class UsersComponent implements OnInit {
     return "";
   }
 
- 
+
   // initForm() {
   //   this.formGroup = new FormGroup({
   //     start_time: new FormControl('', [Validators.required]),
@@ -90,29 +90,24 @@ export class UsersComponent implements OnInit {
 
   // }
 
-
-  // setTableData(results): void {
-  //   // this.dataSource = null;
-  //   this.dataSource = new MatTableDataSource(results);
-  // }
-
-  getAllData() {
-    if (this.screen == "") {
-      return;
-    } 
-    // this.service.getAllData(this.screen).subscribe((res) => {
-    //   console.log(res);
-
-
-    //   this.readData = res;
-    //   this.setTableData(res);
-    // });
+  setTableData(): void {
+    this.dataSource = new MatTableDataSource();
+    // this.dataSource = null;
+    // this.dataSource = new MatTableDataSource(results);
+    //this.dataSource.paginator = this.paginator;
+    //  this.dataSource.sort = this.sort;
   }
+  // getData() {
+  //   this.service.getData().subscribe((res) => {
+  //     this.readData = res;
+  //     this.setTableData(res);
+  //   });
+  // }
 
   clearForm() {
     // this.formGroup.reset();
     // this.formGroup.patchValue();
-    this.getAllData();
+    // this.getData();
   }
 
   goBack() {
