@@ -1,7 +1,7 @@
 var dbCon = require("../database/database-con.js");
 
-module.exports.getData = function(req, res) {
-  let query = "Select * from give_user_table_name_here";
+module.exports.getDataNode = function(req, res) {
+  let query = "Select * from node";
   query += " LIMIT 250 ";
   dbCon.query(query, [], res);
 }

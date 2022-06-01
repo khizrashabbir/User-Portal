@@ -9,3 +9,4 @@ module.exports.authenticateUser = function(req, res) {
   let valuesArr = [username, password];
   dbCon.authenticate(query, valuesArr, res);
 }
+
