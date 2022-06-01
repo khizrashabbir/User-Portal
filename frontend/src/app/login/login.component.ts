@@ -41,28 +41,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // login() {
-  //   if (this.formGroup.valid) {
-  //     this.service.authenticateUser(this.formGroup.value).subscribe((res) => {
-  //       if (res.success) {
-  //         console.log(res);
+  login() {
+    if (this.formGroup.valid) {
+      this.service.authenticateUser(this.formGroup.value).subscribe((res) => {
+        if (res.success) {
+          console.log(res);
 
-  //         localStorage.setItem('username', res.username);
-  //         localStorage.setItem('user_role', res.user_role);
-  //         localStorage.setItem('token', res.accessToken);
-  //         if(res.user_role=="Lea_Admin"){
-  //         this.router.navigate(['activity']);
-  //         }else if(res.user_role=="PTA_Admin"){
-  //           this.router.navigate(['dashboard']);
-  //         }
-  //       } else {
-  //         alert("Login Failed;");
-  //       }
-  //     }, error => {
-  //       alert("Login Failed;");
-  //     });
-  //   }
-  // }
+          localStorage.setItem('username', res.username);
+          localStorage.setItem('user_role', res.user_role);
+        } else {
+          alert("Login Failed;");
+        }
+      }, error => {
+        alert("Login Failed;");
+      });
+    }
+  }
 
 
 }

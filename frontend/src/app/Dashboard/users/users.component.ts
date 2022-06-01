@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Location } from '@angular/common';
 import { UsersService } from '../../api-services/users.service';
@@ -20,10 +22,7 @@ export interface userData {
   added_by: string,
   updated_by: string,
   updated_on_time_stamp: string,
-
-
 }
-
 
 @Component({
   selector: 'app-users',
@@ -31,11 +30,8 @@ export interface userData {
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
-  // formGroup: FormGroup;
-  screen: string;
-  message: string;
-  operators: any;
+  formGroup: FormGroup;
+  selectedRow: userData;
 
   mobileQuery: MediaQueryList;
   voip: boolean;
@@ -45,67 +41,78 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['ip_address', 'status', 'type', 'added_on_time_stamp', 'username', 'password', 'phone_number', 'email_address', 'postal_address', 'added_by', 'updated_by', 'updated_on_time_stamp'];
   dataSource: MatTableDataSource<userData>;
   readData: any;
+ 
+  @ViewChild('activityTable')
+  activityTable!: ElementRef;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private location: Location) {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private location: Location,private service:UsersService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.voip = false;
-    this.screen = "";
-    this.message = "";
-    // this.formGroup = "";
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource();
+    this.formGroup = new FormGroup({});
+    this.selectedRow={} as userData;
   }
+
   ngOnInit(): void {
-    // this.getData();
-    // this.initForm();
-  }
-  //get key by given value of json
-
-  getJSONKeyByValue(json_obj: any, value: string) {
-    for (var key in json_obj) {
-      if (json_obj[key] == value) {
-        return key + "";
-      }
-    }
-    return "";
+    this.getAllData();
+     this.initForm();
   }
 
+  initForm() {
+    this.formGroup = new FormGroup({
+      ip_address: new FormControl('', [Validators.required]),
+      status: new FormControl('', [Validators.required]),
+      type: new FormControl('', []),
+      added_on_time_stamp: new FormControl('', []),
+      username: new FormControl('', []),
+      password: new FormControl('', []),
+      phone_number: new FormControl('', []),
+      email_address: new FormControl('', []),
+      postal_address: new FormControl('', []),
+      added_by: new FormControl('', []),
+      updated_by: new FormControl('', []),
+      updated_on_time_stamp: new FormControl('', []),
+    });
+  }
 
-  // initForm() {
-  //   this.formGroup = new FormGroup({
-  //     start_time: new FormControl('', [Validators.required]),
-  //     end_time: new FormControl('', [Validators.required]),
-  //     subtype: new FormControl('', []),
-  //     policy: new FormControl('', []),
-  //     network_id: new FormControl('', []),
-  //     subscriber_id: new FormControl('', []),
-  //     assigned_to: new FormControl('', []),
-  //     active: new FormControl('', []),
-  //   });
-
-
-  // }
-
-  setTableData(): void {
-    this.dataSource = new MatTableDataSource();
-    // this.dataSource = null;
-    // this.dataSource = new MatTableDataSource(results);
+  setTableData(results): void {
+    this.dataSource = null;
+    this.dataSource = new MatTableDataSource(results);
     //this.dataSource.paginator = this.paginator;
     //  this.dataSource.sort = this.sort;
   }
-  // getData() {
-  //   this.service.getData().subscribe((res) => {
-  //     this.readData = res;
-  //     this.setTableData(res);
-  //   });
-  // }
+tableRowClick(row: any) {
+    console.log(row);
+    console.log(this.formGroup.value);
+    //this.formGroup.setValue(row);
+    // this.formGroup.patchValue({ username: row.username, action:row.action, start_time: row.time});
+    // console.log(row);
+    // console.log(this.formGroup.value);
+    // this.selectedRow = row;
+
+    // this.formGroup.setValue(row);
+    //patch value use for specific values priting
+    // this.formGroup.patchValue({ username: row.username, action:row.action });
+  }
+ 
 
   clearForm() {
     // this.formGroup.reset();
     // this.formGroup.patchValue();
     // this.getData();
+  }
+  getAllData() {
+    this.service.getAllData().subscribe((res) => {
+      this.readData = res;
+      this.setTableData(res);
+    });
   }
 
   goBack() {

@@ -5,8 +5,7 @@
             [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
             <div class="side-content">
                 <p>Add/Update User:</p>
-                <form>
-                    <!-- <form [formGroup]="formGroup"> -->
+                    <form [formGroup]="formGroup">
                     <mat-form-field appearance="fill" class="side-field">
                         <mat-label>IP Addresses</mat-label>
                         <input matInput formControlName="ip_address">

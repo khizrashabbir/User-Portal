@@ -2,8 +2,8 @@ var mysql = require('mysql2'); ///// database connection
 var pool = mysql.createPool({
   host: 'localhost',
   user: 'netrapter',
-  password: 'Khizsh18!',
-  database:'nms',
+  password: 'hali1122',
+  database:'hawkeye100',
 });
 
 module.exports.query = function(getQuery, valuesArr, res) {
@@ -47,17 +47,29 @@ module.exports.queryData = function (getQuery,valuesArr) {
     });
   });
 }
-// add data in users
-module.exports.addData = function (insertQuery, valuesArr, res, log_obj) {
-  let query = mysql.format(insertQuery, valuesArr);
+
+module.exports.authenticate = function(authenticateQuery, valuesArr, res) {
+  let query = mysql.format(authenticateQuery, valuesArr);
 
   pool.query(query, (err, data) => {
     if (err) {
       console.log(err);
-      res.status(400).json("Error! cannot connect to database");
+      res.status(400).json("Error! Login Fail.");
       return;
+    } else if (data.length > 0) {
+      console.log(data);
+      let obj = {};
+      obj.username = data[0].User_UserName;
+      obj.user_role = data[0].Role_Name;
+      obj.action = "Login";
+      obj.time = new Date();
+      addLog(obj);
+      res.status(200).json({
+        message: "success",
+        data: data[0]
+      });
+    } else {
+      res.status(400).json("Login Failed");
     }
-    // addLog(log_obj);
-    res.status(200).json("Record Added Successfully!");
   });
 }

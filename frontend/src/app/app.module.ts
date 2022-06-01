@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './angular-material.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './Dashboard/users/users.component';
 import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
 import { NodesComponent } from './Dashboard/nodes/nodes.component';
