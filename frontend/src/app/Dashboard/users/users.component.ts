@@ -32,7 +32,7 @@ export interface userData {
 })
 export class UsersComponent implements OnInit {
 
-  formGroup: FormGroup;
+  // formGroup: FormGroup;
   screen: string;
   message: string;
   operators: any;
@@ -60,7 +60,7 @@ export class UsersComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getAllData();
-    this.initForm();
+    // this.initForm();
   }
   //get key by given value of json
 
@@ -74,21 +74,20 @@ export class UsersComponent implements OnInit {
   }
 
  
-  initForm() {
-    this.formGroup = new FormGroup({
-      start_time: new FormControl('', [Validators.required]),
-      end_time: new FormControl('', [Validators.required]),
-      subtype: new FormControl('', []),
-      policy: new FormControl('', []),
-      network_id: new FormControl('', []),
-      subscriber_id: new FormControl('', []),
-      assigned_to: new FormControl('', []),
-      active: new FormControl('', []),
-    });
+  // initForm() {
+  //   this.formGroup = new FormGroup({
+  //     start_time: new FormControl('', [Validators.required]),
+  //     end_time: new FormControl('', [Validators.required]),
+  //     subtype: new FormControl('', []),
+  //     policy: new FormControl('', []),
+  //     network_id: new FormControl('', []),
+  //     subscriber_id: new FormControl('', []),
+  //     assigned_to: new FormControl('', []),
+  //     active: new FormControl('', []),
+  //   });
 
-    this.formGroup.patchValue({ start_time: new Date(), end_time: new Date() });
 
-  }
+  // }
 
 
   // setTableData(results): void {
@@ -110,7 +109,7 @@ export class UsersComponent implements OnInit {
   }
 
   clearForm() {
-    this.formGroup.reset();
+    // this.formGroup.reset();
     // this.formGroup.patchValue();
     this.getAllData();
   }

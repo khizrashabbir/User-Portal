@@ -32,8 +32,7 @@ import { LogoutComponent } from './logout/logout.component';
     FormsModule,
     ReactiveFormsModule,
     AngularMaterialModule,
-    HttpClientModule
-   
+    HttpClientModule, 
    
   ],
   providers: [],
