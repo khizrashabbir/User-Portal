@@ -47,3 +47,17 @@ module.exports.queryData = function (getQuery,valuesArr) {
     });
   });
 }
+// add data in users
+module.exports.addData = function (insertQuery, valuesArr, res, log_obj) {
+  let query = mysql.format(insertQuery, valuesArr);
+
+  pool.query(query, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.status(400).json("Error! cannot connect to database");
+      return;
+    }
+    // addLog(log_obj);
+    res.status(200).json("Record Added Successfully!");
+  });
+}
