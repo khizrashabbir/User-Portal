@@ -47,7 +47,19 @@ module.exports.queryData = function (getQuery,valuesArr) {
     });
   });
 }
+module.exports.addData = function (insertQuery, valuesArr, res, log_obj) {
+  let query = mysql.format(insertQuery, valuesArr);
 
+  pool.query(query, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.status(400).json("Error! cannot connect to database");
+      return;
+    }
+    // addLog(log_obj);
+    res.status(200).json("Record Added Successfully!");
+  });
+}
 module.exports.authenticate = function(authenticateQuery, valuesArr, res) {
   let query = mysql.format(authenticateQuery, valuesArr);
 
