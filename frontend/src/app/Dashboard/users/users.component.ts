@@ -56,8 +56,8 @@ export class UsersComponent implements OnInit {
     this.voip = false;
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource();
-    this.formGroup = new FormGroup({});
-    this.selectedRow={} as userData;
+   // this.formGroup = new FormGroup({});
+   // this.selectedRow={} as userData;
   }
 
   ngOnInit(): void {

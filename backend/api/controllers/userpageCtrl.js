@@ -33,7 +33,7 @@ module.exports.searchData = function(req,res){
   let query="Select * from user ";
  let username=req.body.username;
 //  let action=req.body.action;
- query+="where user like \"%?%\" AND action like \"%?%\" ";
+ query+="where username like \"%?%\" ";
  query+= "LIMIT 250";
   dbCon.query(query, [username], res)
 }

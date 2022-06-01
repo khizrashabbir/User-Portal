@@ -28,6 +28,10 @@ router.route('/users/deactivateData').put((req,res)=>{
 router.route('/users/addData').post((req,res)=>{
   userpagectrl.addData(req, res);
 });
+//// search data
+router.route('/users/searchData').post((req,res)=>{
+  userpagectrl.addData(req, res);
+});
 
 
 module.exports = router;
