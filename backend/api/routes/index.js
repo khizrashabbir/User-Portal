@@ -30,8 +30,9 @@ router.route('/users/addData').post((req,res)=>{
 });
 //// search data
 router.route('/users/searchData').post((req,res)=>{
-  userpagectrl.addData(req, res);
+  userpagectrl.searchData(req, res);
 });
+
 
 
 module.exports = router;
