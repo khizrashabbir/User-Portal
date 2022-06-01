@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { Location } from '@angular/common';
 // import { UsersComponent } from '../../api-services/users.service';
+import { UsersService } from '../../api-services/users.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 export interface userData {
