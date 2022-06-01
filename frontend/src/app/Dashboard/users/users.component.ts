@@ -37,8 +37,6 @@ export class UsersComponent implements OnInit {
   message: string;
   operators: any;
 
-  // req_data: userData;
-
   mobileQuery: MediaQueryList;
   voip: boolean;
 
