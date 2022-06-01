@@ -7,7 +7,6 @@ module.exports.getData = function(req, res) {
 }
 
 module.exports.addData = function(req, res) {
-  // let obj = {};
   let ip_address = req.body.ip_address;
   let status = req.body.status;
   let type = req.body.type;
@@ -17,14 +16,12 @@ module.exports.addData = function(req, res) {
   let phone_number = req.body.phone_number;
   let email_address = req.body.email_address;
   let postal_address = req.body.postal_address;
-
   
   let query = "INSERT INTO user"; 
     query += "(ip_address, status, type,added_on_time_stamp, username, password, phone_number, email_address, postal_address)";
     query += "VALUES (?,?,?,?,?,?,?,?,?)";
     let valuesArr = [ip_address, status, type, added_on_time_stamp, username, password, phone_number, email_address, postal_address];
     dbCon.addData(query, valuesArr, res)
-    //values('${ip_address}', '${status}','${type}','${added_on_time_stamp}','${username}','${password}','${phone_number}','${email_address}','${postal_address}','${added_by}','${updated_by}','${updated_on_time_stamp}')`;
       console.log(query)
     }, function(err) {
       res.status(400).json("Error! cannot connect to database");
