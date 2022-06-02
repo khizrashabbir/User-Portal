@@ -11,10 +11,9 @@ router.route('/users/getData').get((req,res)=>{
   req.table_name = "users";
   userpagectrl.getData(req, res);
 });
-// nodes routes
-router.route('/node/getDataNode').get((req,res)=>{
-  req.table_name = "node";
-  nodesctrl.getDataNode(req, res);
+//// add data for user table
+router.route('/users/addData').post((req,res)=>{
+  userpagectrl.addData(req, res);
 });
 ///update user data
 router.route('/users/updateData').put((req,res)=>{
@@ -24,10 +23,11 @@ router.route('/users/updateData').put((req,res)=>{
 router.route('/users/deactivateData').put((req,res)=>{
   userpagectrl.deactivateData(req, res);
 });
-//// add data for user table
-router.route('/users/addData').post((req,res)=>{
-  userpagectrl.addData(req, res);
-});
 
+// nodes routes
+router.route('/node/getDataNode').get((req,res)=>{
+  req.table_name = "node";
+  nodesctrl.getDataNode(req, res);
+});
 
 module.exports = router;
