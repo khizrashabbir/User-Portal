@@ -9,30 +9,14 @@ import { Location } from '@angular/common';
 import { UsersService } from '../../api-services/users.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-export interface userData {
-  ip_address: string,
-  status: string,
-  type: string,
-  added_on_time_stamp: string,
-  username: string,
-  password: number,
-  phone_number: string,
-  email_address: number,
-  postal_address: number,
-  added_by: string,
-  updated_by: string,
-  updated_on_time_stamp: string,
-}
-
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  formGroup: FormGroup;
-  selectedRow: userData;
 
+<<<<<<< HEAD
   mobileQuery: MediaQueryList;
   voip: boolean;
 
@@ -59,68 +43,11 @@ export class UsersComponent implements OnInit {
    // this.formGroup = new FormGroup({});
    // this.selectedRow={} as userData;
   }
+=======
+  constructor() { }
+>>>>>>> 9916b73f8a8e119e76cacd0f918fa40e50806e34
 
   ngOnInit(): void {
-    this.getAllData();
-     this.initForm();
-  }
-
-  initForm() {
-    this.formGroup = new FormGroup({
-      ip_address: new FormControl('', [Validators.required]),
-      status: new FormControl('', [Validators.required]),
-      type: new FormControl('', []),
-      added_on_time_stamp: new FormControl('', []),
-      username: new FormControl('', []),
-      password: new FormControl('', []),
-      phone_number: new FormControl('', []),
-      email_address: new FormControl('', []),
-      postal_address: new FormControl('', []),
-      added_by: new FormControl('', []),
-      updated_by: new FormControl('', []),
-      updated_on_time_stamp: new FormControl('', []),
-    });
-  }
-
-  setTableData(results): void {
-    this.dataSource = null;
-    this.dataSource = new MatTableDataSource(results);
-    //this.dataSource.paginator = this.paginator;
-    //  this.dataSource.sort = this.sort;
-  }
-tableRowClick(row: any) {
-    console.log(row);
-    console.log(this.formGroup.value);
-    //this.formGroup.setValue(row);
-    // this.formGroup.patchValue({ username: row.username, action:row.action, start_time: row.time});
-    // console.log(row);
-    // console.log(this.formGroup.value);
-    // this.selectedRow = row;
-
-    // this.formGroup.setValue(row);
-    //patch value use for specific values priting
-    // this.formGroup.patchValue({ username: row.username, action:row.action });
-  }
- 
-
-  clearForm() {
-    // this.formGroup.reset();
-    // this.formGroup.patchValue();
-    // this.getData();
-  }
-  getAllData() {
-    this.service.getAllData().subscribe((res) => {
-      this.readData = res;
-      this.setTableData(res);
-    });
-  }
-
-  goBack() {
-    this.location.back();
-  }
-
-  logout() {
-    this.router.navigate(['login']);
   }
 
 }
