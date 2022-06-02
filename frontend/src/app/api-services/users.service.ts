@@ -10,7 +10,7 @@ export class UsersService {
 
   constructor(private _http: HttpClient) { }
   
-  getAllData(): Observable<any> {
+  getData(): Observable<any> {
     return this._http.get(`${baseUrl}users/getData`);
   }
   addData(data: any): Observable<any> {
