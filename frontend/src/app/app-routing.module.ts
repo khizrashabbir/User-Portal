@@ -4,9 +4,6 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
 import { NodesComponent } from './Dashboard/nodes/nodes.component';
 import { LogoutComponent } from './logout/logout.component';
-import { UsersComponent } from './Dashboard/users/users.component';
-
-
 
 const routes: Routes = [
   {
@@ -24,9 +21,6 @@ const routes: Routes = [
   {
     path: 'nodes', component: NodesComponent
   },
-  {
-    path: 'users', component: UsersComponent
-  }
 ];
 
 @NgModule({

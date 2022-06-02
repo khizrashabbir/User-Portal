@@ -10,8 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
 import { NodesComponent } from './Dashboard/nodes/nodes.component';
 import { LogoutComponent } from './logout/logout.component';
-import { UsersComponent } from './Dashboard/users/users.component';
-
 
 @NgModule({
   declarations: [
@@ -19,11 +17,7 @@ import { UsersComponent } from './Dashboard/users/users.component';
     LoginComponent,
     DashboardComponent,
     NodesComponent,
-    LogoutComponent,
-    UsersComponent
-   
-  
-
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

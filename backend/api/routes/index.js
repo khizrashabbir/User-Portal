@@ -29,5 +29,10 @@ router.route('/node/getDataNode').get((req,res)=>{
   req.table_name = "node";
   nodesctrl.getDataNode(req, res);
 });
+//// search data
+router.route('/users/searchData').post((req,res)=>{
+  userpagectrl.searchData(req, res);
+});
+
 
 module.exports = router;
